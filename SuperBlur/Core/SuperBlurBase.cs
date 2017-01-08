@@ -85,7 +85,7 @@ namespace SuperBlur
 		}
 			
 	}
-
+	
 	public enum BlurKernelSize
 	{
 		Small,
