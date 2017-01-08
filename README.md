@@ -37,4 +37,4 @@ License
 
 If you'd try to sell it on Asset Store, then I'm gonna find you.
 
-See [LICENSE.md](LICENSE.md) for details.
+See [LICENSE](LICENSE) for details.
