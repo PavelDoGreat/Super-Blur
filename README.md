@@ -11,6 +11,7 @@ Usage
 Just add **SuperBlur.cs** or **SuperBlurFast.cs** script to Camera and attach *Blur Material* and *UI Material* to it.
 
 - **SuperBlur** - (recommended way) It's using OnRenderImage to grab screen texture.
+
 - **SuperBlurFast** - Render scene directly to render texture. Much better perfomance on mobile devices, but doesn't work with other post effects.
 
 Properties
