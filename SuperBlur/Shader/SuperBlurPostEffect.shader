@@ -1,4 +1,6 @@
-﻿Shader "Custom/SuperBlurPostEffect"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/SuperBlurPostEffect"
 {
 	Properties
 	{
@@ -53,7 +55,7 @@
 	{
 		vertexOutput OUT;
 
-		OUT.vertex = mul(UNITY_MATRIX_MVP, IN.vertex);
+		OUT.vertex = UnityObjectToClipPos(IN.vertex);
 		OUT.texcoord = IN.uv;
 
 		return OUT;
@@ -72,7 +74,7 @@
 	{
 		output_5tap OUT;
 
-		OUT.vertex = mul(UNITY_MATRIX_MVP, IN.vertex);
+		OUT.vertex = UnityObjectToClipPos(IN.vertex);
 
 		float2 offset = float2(_MainTex_TexelSize.x * _Radius * 1.33333333, 0.0); 
 
@@ -93,7 +95,7 @@
 	{
 		output_5tap OUT;
 
-		OUT.vertex = mul(UNITY_MATRIX_MVP, IN.vertex);
+		OUT.vertex = UnityObjectToClipPos(IN.vertex);
 
 		float2 offset = float2(0.0, _MainTex_TexelSize.y * _Radius * 1.33333333); 
 
@@ -132,7 +134,7 @@
 	{
 		output_9tap OUT;
 
-		OUT.vertex = mul(UNITY_MATRIX_MVP, IN.vertex);
+		OUT.vertex = UnityObjectToClipPos(IN.vertex);
 
 		float2 offset1 = float2(_MainTex_TexelSize.x * _Radius * 1.38461538, 0.0); 
 		float2 offset2 = float2(_MainTex_TexelSize.x * _Radius * 3.23076923, 0.0);
@@ -156,7 +158,7 @@
 	{
 		output_9tap OUT;
 
-		OUT.vertex = mul(UNITY_MATRIX_MVP, IN.vertex);
+		OUT.vertex = UnityObjectToClipPos(IN.vertex);
 
 		float2 offset1 = float2(0.0, _MainTex_TexelSize.y * _Radius * 1.38461538); 
 		float2 offset2 = float2(0.0, _MainTex_TexelSize.y * _Radius * 3.23076923);
@@ -202,7 +204,7 @@
 	{
 		output_13tap OUT;
 
-		OUT.vertex = mul(UNITY_MATRIX_MVP, IN.vertex);
+		OUT.vertex = UnityObjectToClipPos(IN.vertex);
 
 		float2 offset1 = float2(_MainTex_TexelSize.x * _Radius * 1.41176470, 0.0); 
 		float2 offset2 = float2(_MainTex_TexelSize.x * _Radius * 3.29411764, 0.0);
@@ -229,7 +231,7 @@
 	{
 		output_13tap OUT;
 
-		OUT.vertex = mul(UNITY_MATRIX_MVP, IN.vertex);
+		OUT.vertex = UnityObjectToClipPos(IN.vertex);
 
 		float2 offset1 = float2(0.0, _MainTex_TexelSize.y * _Radius * 1.41176470); 
 		float2 offset2 = float2(0.0, _MainTex_TexelSize.y * _Radius * 3.29411764);
