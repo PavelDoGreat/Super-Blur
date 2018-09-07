@@ -18,7 +18,7 @@ namespace SuperBlur
 
 		void OnPreCull ()
 		{
-			if (blurMaterial == null || UIMaterial == null) return;
+			if (blurMaterial == null) return;
 
 			int tw = Screen.width >> downsample;
 			int th = Screen.height >> downsample;
@@ -30,7 +30,7 @@ namespace SuperBlur
 
 		void OnPostRender ()
 		{
-			if (blurMaterial == null || UIMaterial == null) return;
+			if (blurMaterial == null) return;
 
 			m_Camera.targetTexture = null;
 
@@ -41,13 +41,13 @@ namespace SuperBlur
 			else if (renderMode == RenderMode.UI)
 			{
 				Blur(rt, rt);
-				UIMaterial.SetTexture(Uniforms._BackgroundTexture, rt);
+				Shader.SetGlobalTexture(Uniforms._BackgroundTexture, rt);
 				Graphics.Blit(rt, null, blurMaterial, 0);
 			}
 			else if (renderMode == RenderMode.OnlyUI)
 			{
 				Blur(rt, rt);
-				UIMaterial.SetTexture(Uniforms._BackgroundTexture, rt);
+				Shader.SetGlobalTexture(Uniforms._BackgroundTexture, rt);
 			}
 
 			RenderTexture.ReleaseTemporary(rt);

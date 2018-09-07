@@ -2,8 +2,6 @@
 {
 	Properties
 	{
-		_SuperBlurTexture ("Background Texture", 2D) = "white" {}
-
 		_Color ("Tint", Color) = (1,1,1,0)
 		
 		_StencilComp ("Stencil Comparison", Float) = 8
