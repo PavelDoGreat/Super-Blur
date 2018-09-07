@@ -10,7 +10,7 @@ namespace SuperBlur
 		
 		void OnRenderImage (RenderTexture source, RenderTexture destination) 
 		{
-			if (blurMaterial == null || UIMaterial == null) return;
+			if (blurMaterial == null) return;
 
 			int tw = source.width >> downsample;
 			int th = source.height >> downsample;
@@ -26,13 +26,13 @@ namespace SuperBlur
 			else if (renderMode == RenderMode.UI)
 			{
 				Blur(rt, rt);
-				UIMaterial.SetTexture(Uniforms._BackgroundTexture, rt);
+				Shader.SetGlobalTexture(Uniforms._BackgroundTexture, rt);
 				Graphics.Blit(source, destination);
 			}
 			else if (renderMode == RenderMode.OnlyUI)
 			{
 				Blur(rt, rt);
-				UIMaterial.SetTexture(Uniforms._BackgroundTexture, rt);
+				Shader.SetGlobalTexture(Uniforms._BackgroundTexture, rt);
 			}
 
 			RenderTexture.ReleaseTemporary(rt);

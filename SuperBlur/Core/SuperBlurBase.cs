@@ -64,7 +64,7 @@ namespace SuperBlur
 			{
 				// helps to achieve a larger blur
 				float radius = (float)i * interpolation + interpolation;
-				blurMaterial.SetFloat(Uniforms._Radius, radius);
+				Shader.SetGlobalFloat(Uniforms._Radius, radius);
 
 				Graphics.Blit(source, rt2, blurMaterial, 1 + kernel);
 				source.DiscardContents();
