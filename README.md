@@ -8,7 +8,10 @@ Blur effect that you can apply on Camera and UI. Gaussian weights was taken from
 Usage
 -----
 
-Just add **SuperBlur.cs** or **SuperBlurFast.cs** script to Camera and attach *Blur Material* and *UI Material* to it.
+Just add **SuperBlur.cs** or **SuperBlurFast.cs** script to Camera and attach *Blur Material* and *UI Material* to it.  
+Set the correct shaders for the materials:  
+*SuperBlurPostEffect* -> *Custom/SuperBlurPostEffect*  
+*SuperBlurUI* -> *UI/SuperBlur*  
 
 
 - **SuperBlur** - (recommended way) It's using OnRenderImage to grab screen texture.
